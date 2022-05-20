@@ -6,16 +6,13 @@ function ProductItem({product}) {
     return (
         <div className={'card'}>
             <Link href={`/product/${product.slug}`}>
-              <a>
                   <Image
-                      className={'rounded shadow'}
                       layout={'responsive'}
                       src={product.image}
                       alt={product.name}
                       width={'100%'}
                       height={'100%'}
                   />
-              </a>
             </Link>
             <div className={'flex flex-col items-center justify-center p-5'}>
                 <Link href={`/product/${product.slug}`}>
