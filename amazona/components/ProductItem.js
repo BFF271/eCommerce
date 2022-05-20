@@ -1,12 +1,20 @@
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 function ProductItem({product}) {
     return (
         <div className={'card'}>
             <Link href={`/product/${product.slug}`}>
               <a>
-                  <img className={'rounded shadow'} src={product.image} alt={product.name}/>
+                  <Image
+                      className={'rounded shadow'}
+                      layout={'responsive'}
+                      src={product.image}
+                      alt={product.name}
+                      width={'100%'}
+                      height={'100%'}
+                  />
               </a>
             </Link>
             <div className={'flex flex-col items-center justify-center p-5'}>
