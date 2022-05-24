@@ -7,6 +7,7 @@ function ProductItem({product}) {
         <div className={'card'}>
             <Link href={`/product/${product.slug}`}>
                   <Image
+                      className={'rounded shadow cursor-pointer'}
                       layout={'responsive'}
                       src={product.image}
                       alt={product.name}
