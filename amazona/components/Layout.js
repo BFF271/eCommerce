@@ -8,7 +8,7 @@ import {Store} from "../utils/Store";
  * @returns The Layout component is being returned.
  */
 function Layout({title, children}) {
-    const {state, dispach} = useContext(Store);
+    const {state} = useContext(Store);
     const {cart} = state;
     return (
         <>
@@ -24,7 +24,7 @@ function Layout({title, children}) {
                             <a className={'text-lg font-bold'}>amazona</a>
                         </Link>
                         <div>
-                            <Link href="/cart"><a className={'p-2'}>
+                            <Link href={"/cart"}><a className={'p-2'}>
                                 Cart
                                 {cart.cartItems.length > 0 && (
                                     <span className={'ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white'}>
@@ -32,7 +32,7 @@ function Layout({title, children}) {
                                     </span>
                                 )}
                             </a></Link>
-                            <Link href="/login"><a className={'p-2'}>Login</a></Link>
+                            <Link href={"/login"}><a className={'p-2'}>Login</a></Link>
                         </div>
                     </nav>
                 </header>
