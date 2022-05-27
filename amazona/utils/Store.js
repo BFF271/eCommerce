@@ -9,7 +9,6 @@ const initialState = {
     cart: { cartItems: [] },
 };
 
-
 /**
  * If the action type is CART_ADD_ITEM, then we check if the item already exists in the cart.
  * If it does, we update the quantity of the item.
@@ -29,6 +28,12 @@ function reducer(state, action) {
                 item.name === existItem.name ? newItem : item
             )
                 : [...state.cart.cartItems, newItem];
+            return { ...state, cart: { ...state.cart, cartItems } };
+        }
+        case 'CART_REMOVE_ITEM': {
+            const cartItems = state.cart.cartItems.filter(
+                (item) => item.slug !== action.payload.slug
+            );
             return { ...state, cart: { ...state.cart, cartItems } };
         }
         default:
