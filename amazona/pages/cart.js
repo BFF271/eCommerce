@@ -5,20 +5,39 @@ import { XCircleIcon } from '@heroicons/react/outline';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
-export default function CartScreen() {
+/**
+ * It renders a table of items in the cart, and a button to check out
+ */
+function CartScreen() {
+    /* A hook that gives us access to the router object. */
     const router = useRouter();
+    /* Using the `useContext` hook to get access to the `state` and `dispatch` functions from the `Store` context. */
     const { state, dispatch } = useContext(Store);
+    /* Destructuring the `cartItems` from the `state` object. */
     const {
         cart: { cartItems },
     } = state;
+    /**
+     * When the removeItemHandler function is called, it will dispatch an action to the reducer, which will then update the
+     * state.
+     * @param item - The item to be removed from the cart.
+     */
     const removeItemHandler = (item) => {
         dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
     };
+    /**
+     * It takes an item and a quantity, converts the quantity to a number, and dispatches an action to add the item to the
+     * cart
+     * @param item - The item object that is being added to the cart.
+     * @param qty - The quantity of the item to be added to the cart.
+     */
     const updateCartHandler = (item, qty) => {
         const quantity = Number(qty);
         dispatch({ type: 'CART_ADD_ITEM', payload: { ...item, quantity } });
     };
+    /* Rendering the cart screen. */
     return (
         <Layout title="Shopping Cart">
             <h1 className="mb-4 text-xl">Shopping Cart</h1>
@@ -100,3 +119,5 @@ export default function CartScreen() {
         </Layout>
     );
 }
+
+export default dynamic (()=> Promise.resolve(CartScreen), {ssr: false});
