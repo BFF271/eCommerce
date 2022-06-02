@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-
 /**
  * It renders a table of items in the cart, and a button to check out
  */

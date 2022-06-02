@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from 'react';
-
+/**
+ * It returns a div with a link to the product page, an image, a link to the product page, a product name, a product brand,
+ * a product price, and a button
+ * @returns A div with a link to the product page, an image, a link to the product page, a paragraph, a paragraph, a
+ * paragraph, and a button.
+ */
 function ProductItem({product}) {
     return (
         <div className={'card'}>

@@ -5,7 +5,6 @@ import React, {useContext} from "react";
 import Layout from "../../components/Layout";
 import data from "../../utils/data";
 import {Store} from "../../utils/Store";
-
 /**
  * It renders the product page
  * @returns A product page.
@@ -16,28 +15,24 @@ export default function ProductScreen(){
     const {query} = useRouter();
     const {slug} = query;
     const product = data.products.find(x => x.slug === slug);
-
     /* If the product is not found, it will return a message saying that the product is not found. */
     if(!product) return <h1>Product not found</h1>;
-
     /**
      * When the adding to cart button is clicked, dispatch an action to the reducer to add the product to the cart.
      */
     const addToCartHandler = () => {
         const existItem = state.cart.cartItems.find( (x) => x.slug === product.slug);
         const quantity = existItem? existItem.quantity + 1 : 1;
-
         /* Checking if the product is in stock. If it is not in stock, it will return. */
         if(product.countInStock < quantity) {
             alert('The product is not in stock');
             return;
         }
-
         /* Dispatching an action to the reducer. */
         dispatch( {type: 'CART_ADD_ITEM', payload: {...product, quantity} } );
-        router.push('/cart');
+        /* Redirecting the user to the cart page and then scrolling to the top of the page. */
+        router.push('/cart').then(r => window.scrollTo(0, 0));
     }
-
     /* Rendering the product page. */
     return (
         <Layout title={product.name}>

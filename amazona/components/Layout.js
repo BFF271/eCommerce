@@ -1,9 +1,7 @@
-
 import Head from "next/head";
 import Link from "next/link";
 import React, {useContext, useEffect, useState} from 'react';
 import {Store} from "../utils/Store";
-
 /**
  * It's a React component that renders a header, a main section, and a footer
  * @returns The Layout component is being returned.

@@ -1,16 +1,13 @@
 import {createContext, useReducer} from 'react';
 import Cookies from 'js-cookie';
-
 /* It creates a context provider that wraps the children of the component it's used in, and it provides the state and
 dispatch functions to the children. */
 export const Store = createContext();
-
 /* It's checking if there is a cookie called cart, and if there is, it's parsing it and setting it to the cart
 property of the initialState object. If there isn't, it's setting the cart property to an empty array. */
 const initialState = {
     cart: Cookies.get('cart') ? JSON.parse(Cookies.get('cart')) : { cartItems: [] },
 };
-
 /**
  * If the action type is CART_ADD_ITEM, then we check if the item already exists in the cart.
  * If it does, we update the quantity of the item.
@@ -44,7 +41,6 @@ function reducer(state, action) {
             return state;
     }
 }
-
 /**
  * It creates a context provider that wraps the children of the component it's used in, and it provides the state and
  * dispatch functions to the children
