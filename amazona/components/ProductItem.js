@@ -26,9 +26,11 @@ function ProductItem({product}) {
                 </Link>
                 <p className={'mb-2'}>{product.brand}</p>
                 <p className={'mb-2'}>${product.price}</p>
-                <button className={'primary-button'} type={'button'}>
-                    Add to cart
-                </button>
+                {/*<button
+                    onClick={() => router.push('login?redirect=/shipping')}
+                    className={'primary-button'}
+                    type={'button'}
+                >Add to cart</button>*/}
             </div>
         </div>
     );
