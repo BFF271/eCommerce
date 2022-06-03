@@ -31,7 +31,7 @@ export default function ProductScreen(){
         /* Dispatching an action to the reducer. */
         dispatch( {type: 'CART_ADD_ITEM', payload: {...product, quantity} } );
         /* Redirecting the user to the cart page and then scrolling to the top of the page. */
-        router.push('/cart').then(r => window.scrollTo(0, 0));
+        router.push('/cart');
     }
     /* Rendering the product page. */
     return (
