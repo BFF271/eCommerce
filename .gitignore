@@ -8,3 +8,5 @@
 /.idea
 /node_modules/
 /projectFilesBackup/
+/amazona/.env
+*.env
