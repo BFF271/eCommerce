@@ -15,9 +15,11 @@
     "js-cookie": "^3.0.1",
     "mongoose": "^6.3.5",
     "next": "12.1.6",
+    "next-auth": "^4.5.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-hook-form": "^7.31.3"
+    "react-hook-form": "^7.31.3",
+    "react-toastify": "^9.0.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.9",
